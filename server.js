@@ -39,7 +39,8 @@ app.configure(function() {
 io.configure(function() {
     io.set('authorization', function(data, callback) {
         var obj = require(__dirname+'/lib/socketsession.js');
-        obj.authorize(data, callback);
+        obj.authorize(app, data, callback);
+        console.log('data._session should be set but is undefined here', data._session)
     });
 
 });
@@ -49,5 +50,5 @@ io.sockets.on('connection', function (socket) {
       socket.emit('welcome', { slideId: slideId });
     }
   var backend = require(__dirname+'/lib/backend.js');
-  backend.getCurrentSlide(socket, emit);
+  backend.getCurrentSlide(app, socket, emit);
 });

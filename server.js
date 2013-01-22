@@ -5,10 +5,8 @@ var express = require('express')
   , fs = require('fs')
   , server = require('http').createServer(app)
   , io = require('socket.io').listen(server)
-  , api = require(__dirname+'/lib/api.js')
-  , backend = require(__dirname+'/lib/backend.js');
+  , api = require(__dirname+'/lib/api.js');
 
-// auth reference: http://iamtherockstar.com/blog/2012/02/14/nodejs-and-socketio-authentication-all-way-down/
 
 server.listen(8999);
 
@@ -37,21 +35,19 @@ app.configure(function() {
   });
 });
 
+// auth reference: http://iamtherockstar.com/blog/2012/02/14/nodejs-and-socketio-authentication-all-way-down/
 io.configure(function() {
     io.set('authorization', function(data, callback) {
-      var options = {
-          host: app.get('backendHostname'),
-          port: app.get('backendPort'),
-          path: '/a/'+data.query.phpSessId,
-          method: 'GET',
-          headers: {
-              'Content-Type': 'application/json'
-          }
-      };
-      backend.getJSON(options, function(statusCode, result){
-        if (statusCode != 200) callback('Error invalid phpSessId', false);
-        if (result.auth != 'ok') callback('Error invalid phpSessId', false);
-        else callback(null, true);
-      });
+        var obj = require(__dirname+'/lib/socketsession.js');
+        obj.authorize(data, callback);
     });
+
+});
+
+io.sockets.on('connection', function (socket) {
+    var emit = function(slideId) {
+      socket.emit('welcome', { slideId: slideId });
+    }
+  var backend = require(__dirname+'/lib/backend.js');
+  backend.getCurrentSlide(socket, emit);
 });

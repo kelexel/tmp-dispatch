@@ -8,6 +8,7 @@
 	"socket.io": "0.9.13",
 	"socket.io-client": "0.9.11",
 	"underscore": "1.4.3",
-	"fs": "0.0.0"
+	"fs": "0.0.0",
+	"connect-redis": "1.4.5"
   }
 }

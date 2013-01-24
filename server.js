@@ -1,13 +1,17 @@
 var express = require('express')
+  // not really used
   , RedisStore = require('connect-redis')(express)
+  // not really used
   , sessionStore = new RedisStore()
   , app = express()
   , fs = require('fs')
   , server = require('http').createServer(app)
   , io = require('socket.io').listen(server)
+  // not really used
   , api = require(__dirname+'/lib/api.js');
 
 
+// CORS settings, passing * for now
 app.all('*', function(req, res, next){
   if (!req.get('Origin')) return next();
   // use "*" here to accept any origin
@@ -19,14 +23,16 @@ app.all('*', function(req, res, next){
   next();
 });
 
+// just listen.
 server.listen(8999);
 
 // express setup
-//var app = express();
 app.configure(function() {
+  // set the url and port of our nodejs app
   app.set('backendHostname', 'iconference');
   app.set('backendPort', 80);
 
+  // set an express cookie + session, not really used for now
   app.use(express.cookieParser());
   app.use(express.session({
     secret: 'helloworld',
@@ -36,7 +42,7 @@ app.configure(function() {
   app.use(app.router);
   // serve up static file if found
   app.use('/', express.static(__dirname + '/public'));
-  // // serve up api routes next
+  // serve up api routes next - disabled for now
   // api.create(app);
   // everything else gets index.html
   app.use('/', function (req, res, next) {
@@ -46,43 +52,17 @@ app.configure(function() {
   });
 });
 
-// auth configuration
-// reference: http://iamtherockstar.com/blog/2012/02/14/nodejs-and-socketio-authentication-all-way-down/
-// io.configure(function() {
-//     io.set('authorization', function(data, callback) {
-//         var obj = require(__dirname+'/lib/socketsession.js');
-//         obj.authorize(app, data, callback);
-//     });
-// });
-
-// socket concifugration
-// var publicSocket = io
-//   .configure(function() {
-//       io.set('authorization', function(data, callback) {
-//           var obj = require(__dirname+'/lib/socketsession.js');
-//           obj.authorizePublic(app, data, callback);
-//       });
-//   })
-//   .of('/public')
-//   .on('connection', function (socket) {
-//     var callback = function(data) {
-//       socket.emit('welcome', data);
-//     }
-//   var backend = require(__dirname+'/lib/backend.js');
-//   backend.getCurrentSlide(app, socket, callback);
-// });
+// instantiate the publicSocketModel - will handle all /public calls
 var PublicSocketModel = require(__dirname+'/lib/publicsocket.js');
 var PublicSocket  = PublicSocketModel.create(server, app, io);
 server.addListener('publicSendRefreshOptions', PublicSocket.sendRefreshOptions);
 
+// instantiate the displaySocketModel - will handle all /display calls
 var DisplaySocketModel = require(__dirname+'/lib/displaysocket.js');
 var DisplaySocket  = DisplaySocketModel.create(server, app, io);
 server.addListener('displaySendRefreshOptions', DisplaySocket.sendRefreshOptions);
 
+// instantiate the managerSocketModel - will handle all /manager calls
 var ManagerSocketModel = require(__dirname+'/lib/managersocket.js');
 var ManagerSocket  = ManagerSocketModel.create(server, app, io);
-
-
-
-
 

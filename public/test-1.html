@@ -1,8 +1,8 @@
 <script src="/socket.io/socket.io.js"></script>
 <script>
 	var cookieId = 'ssqu0fkr1lrn2rhvshd5b4scf3';
-  var socket = io.connect('http://localhost', {query: "phpSessId="+cookieId+'&eventHash=be19751bc769be1b251a25efe45357e7'});
-  socket.on('news', function (data) {
-    socket.emit('my other event', { my: 'data' });
+  var socket = io.connect('http://localhost:8999/public', {query: "phpSessId="+cookieId+'&eventHash=be19751bc769be1b251a25efe45357e7'});
+  socket.on('welcome', function (data) {
+  	console.log(data);
   });
 </script>

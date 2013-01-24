@@ -8,7 +8,10 @@ var express = require('express')
   , server = require('http').createServer(app)
   , io = require('socket.io').listen(server)
   // not really used
-  , api = require(__dirname+'/lib/api.js');
+  , api = require(__dirname+'/lib/api.js')
+  , _ = require('underscore');
+
+global._ = _;
 
 
 // CORS settings, passing * for now

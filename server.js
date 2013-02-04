@@ -70,9 +70,8 @@ app.configure(function() {
 // var dp = require(__dirname+'/lib/dispatch_public.js');
 // dp.iniialized = new dp.DispatchPublic(io, server);
 
-var dm = require(__dirname+'/lib/dispatch_manager.js');
-var dd = require(__dirname+'/lib/dispatch_display.js');
-var dp = require(__dirname+'/lib/dispatch_public.js');
-
+var dm = new (require(__dirname+'/lib/dispatch_manager.js'))(io, server);
+var dd = new (require(__dirname+'/lib/dispatch_display.js'))(io, server);
+var dp = new (require(__dirname+'/lib/dispatch_public.js'))(io, server);
 
 

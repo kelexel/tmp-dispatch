@@ -9,6 +9,7 @@
 	"socket.io-client": "0.9.11",
 	"fs": "0.0.0",
 	"connect-redis": "1.4.5",
-	"prime": "0.1.0"
+	"prime": "0.1.0",
+	"forever": "0.10.0"
   }
 }

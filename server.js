@@ -1,3 +1,7 @@
+// Use with something like:
+//	env NODE_ENV='dev' node server.js
+//	env NODE_ENV='prod' node server.js
+
 var express = require('express')
 	, RedisStore = require('connect-redis')(express)
 	, sessionStore = new RedisStore()

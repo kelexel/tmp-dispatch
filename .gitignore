@@ -1,4 +1,4 @@
 node_modules/
 _trash/
 .DS_Store
-logs/
+logs/*

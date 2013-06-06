@@ -1,16 +1,17 @@
 {
-  "name": "dispatcher",
-  "description": "hello world test app",
-  "version": "0.0.1",
-  "private": true,
-  "dependencies": {
-    "express": ">=3.0.6",
-	"socket.io": ">=0.9.13",
-	"socket.io-client": ">=0.9.11",
-	"fs": "0.0.0",
-	"connect-redis": "1.4.5",
-	"prime": "0.1.0",
-	"forever": "0.10.0",
-	"winston": "0.6.2"
-  }
+	"name": "dispatcher",
+	"description": "hello world test app",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+		"express": "3.2.6",
+		"socket.io": "0.9.14",
+		"socket.io-client": "0.9.11",
+		"fs": "0.0.0",
+		"connect-redis": "1.4.5",
+		"prime": "0.1.0",
+		"winston": "0.7.1",
+		"crypto": "0.0.3",
+		"clusterhub": "0.2.1"
+	}
 }

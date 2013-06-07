@@ -67,11 +67,3 @@ app.configure(function() {
 logger.log('Starting..');
 var dm = new (require(__dirname+'/lib/router/router.js'))(io, server, emitter);
 logger.log('Started!');
-// var dm = new (require(__dirname+'/lib/router/router.js'))('shell', io, server, emitter);
-// logger.log('Starting Display Dispatcher');
-// var dd = new (require(__dirname+'/lib/dispatcher/dispatcher_display.js'))(io, server);
-// logger.log('Starting Public Dispatcher');
-// var dp = new (require(__dirname+'/lib/dispatcher/dispatcher_public.js'))(io, server);
-// logger.log('Starting Shell prompt');
-// var dp = new (require(__dirname+'/lib/dispatcher/dispatcher_shell.js'))(io, server);
-

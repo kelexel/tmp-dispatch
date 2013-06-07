@@ -7,7 +7,7 @@ var prime = require('prime');
 	'consoleDebugLevel': 'debug',
 	'mongoIP': '172.16.76.130',
 	'mongoPort': '27017',
-	'mongoDB': 'bewi',
+	'mongoDB': 'bewiDB',
 	'redisIP': '172.16.76.130',
 	'redisPort': '6379'
 });

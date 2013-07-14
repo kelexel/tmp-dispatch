@@ -1,6 +1,7 @@
 var prime = require('prime');
 
-if (process.env.NODE_ENV == 'dev') {
+if (!process.env.NODE_ENV || process.env.NODE_ENV == 'dev') {
+	console.log('dev')
 	 module.exports = _({
 		'backendHostname': 'iconference',
 		'backendPort': 80,

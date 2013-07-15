@@ -13,7 +13,7 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV == 'dev') {
 		'redisIP': '172.16.76.130',
 		'redisPort': '6379'
 	});
-} else {
+} else {
 	 module.exports = _({
 		'backendHostname': 'bewi.net',
 		'backendPort': 80,

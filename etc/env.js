@@ -12,7 +12,8 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV == 'dev') {
 		'mongoPort': '27017',
 		'mongoDB': 'bewiDB',
 		'redisIP': '172.16.76.130',
-		'redisPort': '6379'
+		'redisPort': '6379',
+		'pullDelay': 2500
 	});
 } else {
 	 module.exports = _({
@@ -25,6 +26,7 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV == 'dev') {
 		'mongoPort': '27017',
 		'mongoDB': 'bewiDB',
 		'redisIP': '10.10.10.2',
-		'redisPort': '6379'
+		'redisPort': '6379',
+		'pullDelay': 1500
 	});
 }

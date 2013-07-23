@@ -6,8 +6,8 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV == 'dev') {
 		'backendHostname': 'iconference',
 		'backendPort': 80,
 		'cookieName': 'fa6bd32e8fd5dd8565f3eb82a64e8a3a',
-		// 'shellUrl': 'http://localhost:8999',
-		'shellUrl': 'http://bewi.net:443',
+		'shellUrl': 'http://localhost:8999',
+		// 'shellUrl': 'http://bewi.net:443',
 		'consoleDebugLevel': 'debug',
 		'mongoIP': '172.16.76.130',
 		'mongoPort': '27017',
@@ -15,6 +15,10 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV == 'dev') {
 		'redisIP': '172.16.76.130',
 		'redisPort': '6379',
 		'pullDelay': 2500
+	});
+} else if (process.env.NODE_ENV == 'remote') {
+	 module.exports = _({
+		'shellUrl': 'http://bewi.net:443'
 	});
 } else {
 	 module.exports = _({

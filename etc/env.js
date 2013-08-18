@@ -22,7 +22,7 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV == 'dev') {
 	});
 } else {
 	 module.exports = _({
-		'backendHostname': 'bewi.net',
+		'backendHostname': 'backend.bewi.net',
 		'backendPort': 80,
 		'cookieName': 'fa6bd32e8fd5dd8565f3eb82a64e8a3a',
 		'shellUrl': 'http://10.10.10.2:8999',

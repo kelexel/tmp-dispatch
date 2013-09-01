@@ -13,7 +13,7 @@ if [ ! -z $2 ]; then env=$2; else env='dev'; fi
 if [ ! -z $1 ] && [ $1 == '-cluster' ]; then
 	run $env ../lib/cluster.js
 else if [ ! -z $1 ] && [ $1 == '-shell' ]; then
-	run $env ../lib/shell.js
+	run $env ../lib/cli.js
 else
 	run $env ../lib/worker.js
 fi

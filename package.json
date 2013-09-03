@@ -18,7 +18,7 @@
 		"request": "2.22.0",
 		"uglify-js": ">=2.3.6",
 		"uglifycss": ">=0.0.5",
-		"levelup": "*",
-		"leveldown": "*"
+		"levelup": "0.15.0",
+		"leveldown": "0.8.0"
 	}
 }

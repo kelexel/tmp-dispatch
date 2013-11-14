@@ -4,3 +4,7 @@ _trash/
 logs/*
 var/logs
 *.log
+public
+var
+_lib
+_trash

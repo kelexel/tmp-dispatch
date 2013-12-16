@@ -1,7 +1,7 @@
 #!/bin/sh
 run(){
 	echo "Running shell in $1 mode";
-	env NODE_ENV=$1 node ../lib/shell.js
+	env NODE_ENV=$1 node ../lib/cli.js
 }
 
 

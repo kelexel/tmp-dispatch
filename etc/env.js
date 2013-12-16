@@ -21,7 +21,7 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV == 'utopia') {
 	});
 } else if (process.env.NODE_ENV == 'dev') {
 	 module.exports = _({
-	 	'bindPort': 9999,
+	 	'bindPort': 8888,
 		'backendHostname': 'dev.backend.bewi.net',
 		'backendPort': 80,
 		'cookieName': 'fa6bd32e8fd5dd8565f3eb82a64e8a3a',

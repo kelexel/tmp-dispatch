@@ -1,5 +1,5 @@
 {
-	"name": "dispatcher",
+	"name": "socket_router",
 	"description": "hello world test app",
 	"version": "0.0.1",
 	"private": true,
@@ -19,6 +19,7 @@
 		"uglify-js": ">=2.3.6",
 		"uglifycss": ">=0.0.5",
 		"levelup": "0.15.0",
-		"leveldown": "0.8.0"
+		"leveldown": "0.8.0",
+		"querystring": "0.2.0"
 	}
 }
